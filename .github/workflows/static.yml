@@ -9,7 +9,22 @@ on:
 
   workflow_dispatch:
 
-permissions:
+permissions:name: Create README.md
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create README
+        run: echo "# Hello" > README.md
   contents: read
   pages: write
   id-token: write
