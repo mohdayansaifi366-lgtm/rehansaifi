@@ -1,9 +1,4 @@
-name: Create README.md
-
-on:
-  push:
-    branches:
-      - mainname: Deploy static content to Pages
+name: Deploy static content to Pages
 
 on:
   push:
@@ -41,20 +36,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
-permissions:
-  contents: write
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Create README
-        run: echo "# Hello World" > README.md
